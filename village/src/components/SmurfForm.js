@@ -10,19 +10,25 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = event => {
-    event.preventDefault();
+  addSmurf = e => {
+    e.preventDefault();
+    console.log("clicked")
+    this.props.addSmurf(this.state)
+    this.props.history.push('/')
     // add code to create the smurf using the api
 
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    // this.setState({
+    //   name: '',
+    //   age: '',
+    //   height: ''
+    // });
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ 
+      ...this.state,
+      [e.target.name]: e.target.value 
+    });
   };
 
   render() {
